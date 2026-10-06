@@ -484,14 +484,22 @@ button {
   margin-top: 28px;
   color: #7a6a64;
 }
+.fv__action {
+  width: fit-content;
+}
+@media (max-width: 767px) {
+  .fv__action {
+    width: 100%;
+  }
+}
 .fv__points {
   display: flex;
+  justify-content: space-around;
   gap: 16px;
   margin-top: 32px;
 }
 @media (max-width: 767px) {
   .fv__points {
-    justify-content: space-around;
     gap: 8px;
   }
 }

@@ -64,13 +64,20 @@
     margin-top: 28px;
     color: $color-text-sub;
   }
+  // 丸3つと予約ボタンを同じ幅のまとまりにする
+  // （PCはボタンの幅、スマホは画面幅いっぱい）
+  &__action {
+    width: fit-content;
+    @include mq(sp) {
+      width: 100%;
+    }
+  }
   &__points {
     display: flex;
+    justify-content: space-around;
     gap: 16px;
     margin-top: 32px;
-    // スマホでは予約ボタンが横幅いっぱいになるため、丸もその幅の中で均等に並べる
     @include mq(sp) {
-      justify-content: space-around;
       gap: 8px;
     }
     li {
