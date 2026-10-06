@@ -489,6 +489,12 @@ button {
   gap: 16px;
   margin-top: 32px;
 }
+@media (max-width: 767px) {
+  .fv__points {
+    justify-content: space-around;
+    gap: 8px;
+  }
+}
 .fv__points li {
   display: flex;
   flex-direction: column;

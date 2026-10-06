@@ -68,6 +68,11 @@
     display: flex;
     gap: 16px;
     margin-top: 32px;
+    // スマホでは予約ボタンが横幅いっぱいになるため、丸もその幅の中で均等に並べる
+    @include mq(sp) {
+      justify-content: space-around;
+      gap: 8px;
+    }
     li {
       display: flex;
       flex-direction: column;
