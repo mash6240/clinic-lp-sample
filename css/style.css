@@ -796,18 +796,9 @@ button {
   background: #faf5f1;
   border-radius: 20px;
 }
-.reason__item:nth-child(even) {
-  flex-direction: row-reverse;
-  text-align: right;
-}
-@media (max-width: 767px) {
-  .reason__item:nth-child(even) {
-    text-align: left;
-  }
-}
 @media (max-width: 767px) {
   .reason__item {
-    flex-direction: column !important;
+    flex-direction: column;
     align-items: flex-start;
     gap: 12px;
     padding: 28px 24px;
@@ -815,6 +806,14 @@ button {
 }
 .reason__num {
   flex-shrink: 0;
+  width: 88px;
+}
+@media (max-width: 767px) {
+  .reason__num {
+    width: auto;
+  }
+}
+.reason__num {
   display: flex;
   flex-direction: column;
   align-items: center;
