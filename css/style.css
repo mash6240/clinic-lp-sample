@@ -246,8 +246,7 @@ button {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.97);
   transition: box-shadow 0.3s;
 }
 .header.is-scrolled {

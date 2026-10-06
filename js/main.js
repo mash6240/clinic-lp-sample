@@ -17,7 +17,10 @@ function initHamburger() {
   const nav = document.getElementById('gnav');
   if (!btn || !nav) return;
 
+  const header = document.querySelector('.header');
   const toggle = (open) => {
+    // お知らせバーの高さがあっても、メニューがヘッダーの真下から始まるようにする
+    if (open && header) nav.style.top = `${header.getBoundingClientRect().bottom}px`;
     btn.setAttribute('aria-expanded', String(open));
     btn.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
     nav.classList.toggle('is-open', open);

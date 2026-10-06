@@ -14,8 +14,8 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba($color-white, 0.92);
-  backdrop-filter: blur(8px);
+  // backdrop-filterを使うと、中の固定配置メニューの基準がヘッダーになってしまうため使用しない
+  background: rgba($color-white, 0.97);
   transition: box-shadow 0.3s;
   &.is-scrolled {
     box-shadow: 0 4px 20px rgba($color-text, 0.08);
