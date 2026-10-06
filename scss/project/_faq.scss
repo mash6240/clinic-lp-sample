@@ -1,0 +1,80 @@
+@use "../foundation/variables" as *;
+@use "../foundation/mixins" as *;
+
+.faq {
+  background: $color-beige;
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  &__item {
+    background: $color-white;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  &__q {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  &__btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    padding: 22px 64px 22px 24px;
+    text-align: left;
+    line-height: 1.6;
+    @include mq(sp) {
+      padding: 18px 52px 18px 16px;
+      font-size: 0.9375rem;
+    }
+    &::before {
+      content: "Q";
+      flex-shrink: 0;
+      font-family: $font-en;
+      font-size: 1.625rem;
+      line-height: 1;
+      color: $color-primary;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: 28px;
+      width: 10px;
+      height: 10px;
+      border-right: 1.5px solid $color-primary;
+      border-bottom: 1.5px solid $color-primary;
+      transform: translateY(-70%) rotate(45deg);
+      transition: transform 0.3s;
+      @include mq(sp) {
+        right: 22px;
+      }
+    }
+    &[aria-expanded="true"]::after {
+      transform: translateY(-30%) rotate(-135deg);
+    }
+  }
+  &__a {
+    display: flex;
+    gap: 16px;
+    margin: 0 24px;
+    padding: 20px 0 24px;
+    border-top: 1px dashed $color-border;
+    font-size: 0.9375rem;
+    color: $color-text-sub;
+    @include mq(sp) {
+      margin: 0 16px;
+    }
+    &::before {
+      content: "A";
+      flex-shrink: 0;
+      font-family: $font-en;
+      font-size: 1.625rem;
+      line-height: 1;
+      color: $color-accent;
+    }
+  }
+}

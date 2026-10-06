@@ -1,0 +1,148 @@
+@use "../foundation/variables" as *;
+@use "../foundation/mixins" as *;
+
+.sample-notice {
+  padding: 6px 16px;
+  font-size: 0.75rem;
+  line-height: 1.6;
+  text-align: center;
+  color: $color-white;
+  background: $color-text;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba($color-white, 0.92);
+  backdrop-filter: blur(8px);
+  transition: box-shadow 0.3s;
+  &.is-scrolled {
+    box-shadow: 0 4px 20px rgba($color-text, 0.08);
+  }
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    height: $header-height-pc;
+    max-width: 1320px;
+    margin-inline: auto;
+    padding-inline: 32px;
+    @include mq(sp) {
+      height: $header-height-sp;
+      padding-inline: 20px;
+    }
+  }
+  &__logo {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+    flex-shrink: 0;
+  }
+  &__logo-en {
+    font-family: $font-en;
+    font-size: 1.75rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: $color-primary-dark;
+    @include mq(sp) {
+      font-size: 1.375rem;
+    }
+  }
+  &__logo-ja {
+    font-size: 0.625rem;
+    letter-spacing: 0.12em;
+    color: $color-text-sub;
+  }
+}
+
+.gnav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  &__list {
+    display: flex;
+    gap: 28px;
+  }
+  &__link {
+    position: relative;
+    font-size: 0.875rem;
+    letter-spacing: 0.08em;
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 100%;
+      height: 1px;
+      background: $color-primary;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s;
+    }
+    @include hover {
+      &::after {
+        transform: scaleX(1);
+        transform-origin: left;
+      }
+    }
+  }
+  &__cta {
+    padding: 0.75em 1.6em;
+    font-size: 0.875rem;
+  }
+
+  @include mq(tab) {
+    position: fixed;
+    inset: $header-height-pc 0 0 0;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+    background: $color-beige;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    &.is-open {
+      opacity: 1;
+      visibility: visible;
+    }
+    &__list {
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+    }
+    &__link {
+      font-size: 1rem;
+    }
+  }
+  @include mq(sp) {
+    inset: $header-height-sp 0 0 0;
+  }
+}
+
+.hamburger {
+  display: none;
+  position: relative;
+  width: 44px;
+  height: 44px;
+  @include mq(tab) {
+    display: block;
+  }
+  span {
+    position: absolute;
+    left: 10px;
+    width: 24px;
+    height: 1.5px;
+    background: $color-text;
+    transition: transform 0.3s, opacity 0.3s, top 0.3s;
+    &:nth-child(1) { top: 14px; }
+    &:nth-child(2) { top: 21px; }
+    &:nth-child(3) { top: 28px; }
+  }
+  &[aria-expanded="true"] span {
+    &:nth-child(1) { top: 21px; transform: rotate(45deg); }
+    &:nth-child(2) { opacity: 0; }
+    &:nth-child(3) { top: 21px; transform: rotate(-45deg); }
+  }
+}

@@ -1,0 +1,16 @@
+@use "sass:map";
+@use "variables" as *;
+
+@mixin mq($key) {
+  @media #{map.get($breakpoints, $key)} {
+    @content;
+  }
+}
+
+@mixin hover {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}

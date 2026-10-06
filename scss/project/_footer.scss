@@ -1,0 +1,86 @@
+@use "../foundation/variables" as *;
+@use "../foundation/mixins" as *;
+
+.footer {
+  padding: 56px 0 40px;
+  text-align: center;
+  color: $color-beige-dark;
+  background: $color-text;
+  @include mq(sp) {
+    padding-bottom: 104px;
+  }
+  &__logo {
+    font-family: $font-en;
+    font-size: 2rem;
+    letter-spacing: 0.08em;
+    color: $color-white;
+  }
+  &__note {
+    margin-top: 16px;
+    font-size: 0.75rem;
+  }
+  &__copy {
+    margin-top: 24px;
+    font-size: 0.75rem;
+    opacity: 0.7;
+  }
+}
+
+.fixed-cta {
+  display: none;
+  @include mq(sp) {
+    display: block;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 90;
+    padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+    background: rgba($color-white, 0.95);
+    box-shadow: 0 -4px 16px rgba($color-text, 0.08);
+    transform: translateY(100%);
+    transition: transform 0.4s;
+    &.is-show {
+      transform: none;
+    }
+  }
+  &__btn {
+    width: 100%;
+  }
+}
+
+.pagetop {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  background: $color-white;
+  border: 1px solid $color-primary;
+  border-radius: 50%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s, background-color 0.3s;
+  &::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    margin-top: 4px;
+    border-top: 1.5px solid $color-primary;
+    border-left: 1.5px solid $color-primary;
+    transform: rotate(45deg);
+  }
+  &.is-show {
+    opacity: 1;
+    visibility: visible;
+  }
+  @include hover {
+    background: $color-beige;
+  }
+  @include mq(sp) {
+    display: none;
+  }
+}

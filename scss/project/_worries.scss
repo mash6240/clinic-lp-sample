@@ -1,0 +1,59 @@
+@use "../foundation/variables" as *;
+@use "../foundation/mixins" as *;
+
+.worries {
+  background: $color-white;
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    @include mq(tab) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include mq(sp) {
+      gap: 12px;
+    }
+  }
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 36px 16px;
+    text-align: center;
+    line-height: 1.6;
+    background: $color-beige;
+    border-radius: 16px;
+    @include mq(sp) {
+      padding: 24px 8px;
+      font-size: 0.875rem;
+    }
+    &:nth-child(2) { transition-delay: 0.1s; }
+    &:nth-child(3) { transition-delay: 0.2s; }
+    &:nth-child(4) { transition-delay: 0.3s; }
+  }
+  &__icon {
+    width: 56px;
+    height: 56px;
+    color: $color-primary;
+    @include mq(sp) {
+      width: 44px;
+      height: 44px;
+    }
+  }
+  &__message {
+    margin-top: 56px;
+    font-family: $font-serif;
+    font-size: clamp(1.125rem, 1rem + 0.6vw, 1.5rem);
+    line-height: 1.7;
+    text-align: center;
+    em {
+      font-style: normal;
+      color: $color-primary-dark;
+      background: linear-gradient(transparent 62%, rgba($color-accent, 0.4) 62%);
+    }
+    @include mq(sp) {
+      margin-top: 40px;
+    }
+  }
+}

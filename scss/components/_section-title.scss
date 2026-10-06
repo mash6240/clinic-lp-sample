@@ -1,0 +1,44 @@
+@use "../foundation/variables" as *;
+@use "../foundation/mixins" as *;
+
+.section-title {
+  margin-bottom: 64px;
+  text-align: center;
+  @include mq(sp) {
+    margin-bottom: 40px;
+  }
+  &__en {
+    font-family: $font-en;
+    font-size: 1.125rem;
+    font-style: italic;
+    letter-spacing: 0.12em;
+    color: $color-primary;
+  }
+  &__ja {
+    margin-top: 4px;
+    font-family: $font-serif;
+    font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2.125rem);
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 0.1em;
+    &::after {
+      content: "";
+      display: block;
+      width: 40px;
+      height: 1px;
+      margin: 24px auto 0;
+      background: $color-primary;
+    }
+  }
+  &--light {
+    .section-title__en {
+      color: $color-beige-dark;
+    }
+    .section-title__ja {
+      color: $color-white;
+      &::after {
+        background: $color-white;
+      }
+    }
+  }
+}

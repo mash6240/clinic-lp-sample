@@ -1,0 +1,29 @@
+// ===== Colors =====
+$color-text: #4a3b36;
+$color-text-sub: #7a6a64;
+$color-primary: #b9786a;
+$color-primary-dark: #9b5f52;
+$color-accent: #d9a99a;
+$color-beige: #faf5f1;
+$color-beige-dark: #f3e8e1;
+$color-white: #fff;
+$color-border: #eadbd3;
+$color-error: #c2483b;
+
+// ===== Fonts =====
+$font-sans: "Noto Sans JP", "Hiragino Sans", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+$font-serif: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", serif;
+$font-en: "Cormorant Garamond", serif;
+
+// ===== Layout =====
+$container-width: 1120px;
+$container-narrow: 880px;
+$header-height-pc: 84px;
+$header-height-sp: 64px;
+
+// ===== Breakpoints =====
+$breakpoints: (
+  sp: "(max-width: 767px)",
+  tab: "(max-width: 1023px)",
+  pc: "(min-width: 768px)",
+);

@@ -1,0 +1,83 @@
+@use "../foundation/variables" as *;
+@use "../foundation/mixins" as *;
+
+.flow {
+  background: $color-white;
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    counter-reset: flow;
+    @include mq(tab) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include mq(sp) {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+  }
+  &__item {
+    position: relative;
+    padding: 32px 24px;
+    text-align: center;
+    border: 1px solid $color-border;
+    border-radius: 16px;
+    &:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -26px;
+      width: 12px;
+      height: 12px;
+      border-top: 1.5px solid $color-accent;
+      border-right: 1.5px solid $color-accent;
+      transform: translateY(-50%) rotate(45deg);
+      @include mq(tab) {
+        display: none;
+      }
+    }
+    &:nth-child(2) { transition-delay: 0.1s; }
+    &:nth-child(3) { transition-delay: 0.2s; }
+    &:nth-child(4) { transition-delay: 0.3s; }
+    p {
+      font-size: 0.875rem;
+      color: $color-text-sub;
+    }
+    @include mq(sp) {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      column-gap: 16px;
+      padding: 20px;
+      text-align: left;
+      .flow__step {
+        grid-row: span 2;
+        align-self: center;
+      }
+    }
+  }
+  &__step {
+    display: inline-block;
+    padding: 4px 14px;
+    font-family: $font-en;
+    font-size: 0.9375rem;
+    letter-spacing: 0.08em;
+    color: $color-white;
+    background: $color-primary;
+    border-radius: 999px;
+    @include mq(sp) {
+      padding: 4px 0;
+      text-align: center;
+      font-size: 0.8125rem;
+    }
+  }
+  &__title {
+    margin: 16px 0 8px;
+    font-family: $font-serif;
+    font-size: 1.1875rem;
+    font-weight: 500;
+    @include mq(sp) {
+      margin: 0 0 4px;
+      font-size: 1.0625rem;
+    }
+  }
+}

@@ -1,0 +1,97 @@
+@use "sass:color";
+@use "../foundation/variables" as *;
+@use "../foundation/mixins" as *;
+
+.price {
+  background: $color-beige;
+  &__tabs {
+    display: flex;
+    gap: 8px;
+    border-bottom: 2px solid $color-primary;
+  }
+  &__tab {
+    flex: 1;
+    padding: 14px 8px;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: $color-text-sub;
+    background: $color-beige-dark;
+    border-radius: 12px 12px 0 0;
+    transition: background-color 0.3s, color 0.3s;
+    &.is-active {
+      color: $color-white;
+      background: $color-primary;
+    }
+    @include hover {
+      &:not(.is-active) {
+        background: color.adjust($color-beige-dark, $lightness: -4%);
+      }
+    }
+    @include mq(sp) {
+      font-size: 0.8125rem;
+      padding-inline: 4px;
+    }
+  }
+  &__panel {
+    &.is-active {
+      animation: fadeIn 0.4s ease;
+    }
+  }
+  &__notes {
+    margin-top: 24px;
+    font-size: 0.8125rem;
+    color: $color-text-sub;
+    p + p {
+      margin-top: 4px;
+    }
+  }
+}
+
+.price-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: $color-white;
+  th,
+  td {
+    padding: 20px 24px;
+    border-bottom: 1px solid $color-border;
+    @include mq(sp) {
+      padding: 14px 10px;
+      font-size: 0.875rem;
+    }
+  }
+  thead th {
+    white-space: nowrap;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: $color-text-sub;
+    background: $color-white;
+    text-align: center;
+    &:first-child {
+      text-align: left;
+    }
+  }
+  tbody th {
+    font-weight: 500;
+    text-align: left;
+    @include mq(sp) {
+      font-size: 0.8125rem;
+      line-height: 1.5;
+    }
+  }
+  td {
+    font-family: $font-serif;
+    font-size: 1.125rem;
+    text-align: center;
+    white-space: nowrap;
+    color: $color-primary-dark;
+    @include mq(sp) {
+      font-size: 0.9375rem;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

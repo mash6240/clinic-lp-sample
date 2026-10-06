@@ -1,0 +1,148 @@
+@use "sass:color";
+@use "../foundation/variables" as *;
+@use "../foundation/mixins" as *;
+
+.reserve {
+  background: linear-gradient(135deg, $color-primary 0%, $color-primary-dark 100%);
+}
+
+.form {
+  padding: 56px 64px;
+  background: $color-white;
+  border-radius: 24px;
+  @include mq(sp) {
+    padding: 32px 20px;
+  }
+  &__row {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    column-gap: 24px;
+    align-items: start;
+    padding-block: 16px;
+    @include mq(sp) {
+      grid-template-columns: 1fr;
+      row-gap: 8px;
+      padding-block: 12px;
+    }
+  }
+  &__fieldset {
+    margin: 0;
+    border: none;
+    padding-inline: 0;
+  }
+  &__label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-top: 12px;
+    padding-inline: 0;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    @include mq(sp) {
+      padding-top: 0;
+    }
+  }
+  &__req,
+  &__opt {
+    padding: 1px 8px;
+    font-size: 0.6875rem;
+    font-weight: 500;
+    border-radius: 4px;
+  }
+  &__req {
+    color: $color-white;
+    background: $color-primary;
+  }
+  &__opt {
+    color: $color-text-sub;
+    background: $color-beige-dark;
+  }
+  &__input {
+    width: 100%;
+    padding: 14px 16px;
+    font: inherit;
+    color: $color-text;
+    background: $color-beige;
+    border: 1px solid $color-border;
+    border-radius: 8px;
+    transition: border-color 0.3s, background-color 0.3s;
+    &::placeholder {
+      color: color.adjust($color-text-sub, $lightness: 25%);
+    }
+    &:focus {
+      outline: none;
+      border-color: $color-primary;
+      background: $color-white;
+    }
+    &.is-error {
+      border-color: $color-error;
+      background: color.adjust($color-error, $lightness: 46%);
+    }
+  }
+  &__textarea {
+    resize: vertical;
+  }
+  &__error {
+    grid-column: 2;
+    min-height: 0;
+    font-size: 0.8125rem;
+    color: $color-error;
+    &:not(:empty) {
+      margin-top: 6px;
+    }
+    @include mq(sp) {
+      grid-column: 1;
+    }
+  }
+  &__checks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-top: 8px;
+  }
+  &__check {
+    position: relative;
+    cursor: pointer;
+    input {
+      position: absolute;
+      opacity: 0;
+    }
+    span {
+      display: inline-block;
+      padding: 8px 18px;
+      font-size: 0.875rem;
+      border: 1px solid $color-border;
+      border-radius: 999px;
+      transition: all 0.3s;
+    }
+    input:checked + span {
+      color: $color-white;
+      background: $color-primary;
+      border-color: $color-primary;
+    }
+    input:focus-visible + span {
+      outline: 2px solid $color-primary;
+      outline-offset: 2px;
+    }
+  }
+  &__submit {
+    margin-top: 32px;
+    text-align: center;
+  }
+  &__note {
+    margin-top: 12px;
+    font-size: 0.75rem;
+    color: $color-text-sub;
+  }
+  &__done {
+    margin-top: 24px;
+    padding: 24px;
+    text-align: center;
+    color: $color-primary-dark;
+    background: $color-beige;
+    border-radius: 12px;
+    &:focus {
+      outline: none;
+    }
+  }
+}

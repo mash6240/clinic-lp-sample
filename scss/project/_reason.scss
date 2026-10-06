@@ -1,0 +1,67 @@
+@use "../foundation/variables" as *;
+@use "../foundation/mixins" as *;
+
+.reason {
+  background: $color-white;
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 960px;
+    margin-inline: auto;
+  }
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    padding: 40px 56px;
+    background: $color-beige;
+    border-radius: 20px;
+    &:nth-child(even) {
+      flex-direction: row-reverse;
+      text-align: right;
+      @include mq(sp) {
+        text-align: left;
+      }
+    }
+    @include mq(sp) {
+      flex-direction: column !important;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 28px 24px;
+    }
+  }
+  &__num {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: $font-en;
+    font-size: 1rem;
+    font-style: italic;
+    letter-spacing: 0.1em;
+    line-height: 1;
+    color: $color-primary;
+    span {
+      font-size: 4rem;
+      font-style: normal;
+      @include mq(sp) {
+        font-size: 2.75rem;
+      }
+    }
+    @include mq(sp) {
+      flex-direction: row;
+      align-items: baseline;
+      gap: 8px;
+    }
+  }
+  &__title {
+    margin-bottom: 12px;
+    font-family: $font-serif;
+    font-size: 1.375rem;
+    font-weight: 500;
+    @include mq(sp) {
+      font-size: 1.1875rem;
+    }
+  }
+}
