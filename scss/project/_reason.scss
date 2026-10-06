@@ -17,15 +17,8 @@
     padding: 40px 56px;
     background: $color-beige;
     border-radius: 20px;
-    &:nth-child(even) {
-      flex-direction: row-reverse;
-      text-align: right;
-      @include mq(sp) {
-        text-align: left;
-      }
-    }
     @include mq(sp) {
-      flex-direction: column !important;
+      flex-direction: column;
       align-items: flex-start;
       gap: 12px;
       padding: 28px 24px;
@@ -33,6 +26,10 @@
   }
   &__num {
     flex-shrink: 0;
+    width: 88px; // 数字の幅の違いで本文の開始位置がずれないよう固定
+    @include mq(sp) {
+      width: auto;
+    }
     display: flex;
     flex-direction: column;
     align-items: center;
